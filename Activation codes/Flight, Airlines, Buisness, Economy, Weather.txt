@@ -1,0 +1,38 @@
+
+INSERT INTO Airline (Airline_name, Contact_number) VALUES
+('SkyHigh Airlines', 1234567890),
+('Global Wings', 2345678901),
+('FlyFast', 3456789012);
+
+
+INSERT INTO Flights (
+    Flight_num, Flight_name, Arrival_time, Departure_time, Seat_availability, 
+    Starting_location, Ending_location, Distance, Aile_seat, Middle_seat, Airline_name
+) VALUES
+('FL001', 'Sky Express', '14:30:00', '12:00:00', 'YES', 'New York', 'London', 5600, 30, 20, 'SkyHigh Airlines'),
+('FL002', 'Global Runner', '10:00:00', '07:00:00', 'YES', 'Tokyo', 'Dubai', 8000, 40, 25, 'Global Wings'),
+('FL003', 'FlyFast Jet', '16:45:00', '13:15:00', 'YES', 'Berlin', 'Paris', 1050, 15, 10, 'FlyFast');
+
+
+INSERT INTO Economy (Flight_num, Base_fair) VALUES
+('FL001', 300),
+('FL002', 450),
+('FL003', 150);
+
+
+INSERT INTO Business (
+    Flight_num, Base_fair, WIFI_availability, Drink_availability, 
+    Blanket_availability, Pillow_availability, In_flight_movies
+) VALUES
+('FL001', 600, 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'),
+('FL002', 800, 'Yes', 'No', 'Yes', 'No', 'Yes'),
+('FL003', 300, 'No', 'Yes', 'No', 'Yes', 'No');
+
+
+
+INSERT INTO Weather (
+    Weather_ID, Date, Time, Location, Wind_speed, Temperature, Visibility, Precipitation, Flight_num
+) VALUES
+(1, '2025-05-09', '11:30:00', 'New York', 15.5, 22.3, 10.0, 'None', 'FL001'),
+(2, '2025-05-09', '06:30:00', 'Tokyo', 12.0, 30.1, 8.5, 'Rain', 'FL002'),
+(3, '2025-05-09', '12:00:00', 'Berlin', 9.8, 18.7, 9.2, 'Fog', 'FL003');

@@ -1,0 +1,209 @@
+/* payment_styles.css */
+/* General Styles */
+body {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #95c7c9;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.payment-container {
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    margin: 2rem;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+select,
+input[type="number"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    margin: 0.25rem 0 1rem 0;
+}
+
+/* Number input specific fixes */
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+select:focus,
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Price Display */
+p {
+    background: #6693c1;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+strong {
+    color: #2c3e50;
+}
+
+#unit-price, #total {
+    color: #0a080a;
+    font-weight: bold;
+}
+
+/* Payment Methods */
+p:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+label[for^="payment-method"] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+input[type="radio"] {
+    accent-color: #3498db;
+    margin: 0;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background: #3498db;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+.payment-method-fields {
+    display: none;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.payment-method-fields.active {
+    display: block;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.instructions {
+    background-color: #f0f8ff;
+    padding: 10px;
+    border-left: 4px solid #4682b4;
+    margin-bottom: 15px;
+}
+.payment-method-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.payment-method-option img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+.payment-method-option label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #052336;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .payment-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    button[type="submit"] {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}

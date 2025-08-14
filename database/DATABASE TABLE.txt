@@ -1,0 +1,102 @@
+-- 1. Create & USE the database
+CREATE DATABASE IF NOT EXISTS FlightBookingDB;
+USE FlightBookingDB;
+
+-- 2. Airline
+CREATE TABLE Airline (
+    Airline_name    VARCHAR(50) PRIMARY KEY,
+    Contact_number  BIGINT UNIQUE NOT NULL
+);
+
+-- 3. Passengers
+CREATE TABLE Passengers (
+    User_name       VARCHAR(50) PRIMARY KEY,
+    First_name      VARCHAR(50) NOT NULL,
+    Last_name       VARCHAR(50) NOT NULL,
+    House_number    INT NOT NULL,
+    City            VARCHAR(50) NOT NULL,
+    Post_code       INT NOT NULL,
+    Country         VARCHAR(50) NOT NULL,
+    Passport_number BIGINT UNIQUE NOT NULL,
+    Email           VARCHAR(100) UNIQUE NOT NULL,
+    Password        VARCHAR(255) NOT NULL,
+    Date_of_birth   DATE NOT NULL,
+    Gender          ENUM('male','female','other') NOT NULL
+);
+
+-- 4. Flights
+CREATE TABLE Flights (
+    Flight_num         VARCHAR(50) PRIMARY KEY,
+    Flight_name        VARCHAR(50) NOT NULL,
+    Arrival_time       TIME,
+    Departure_time     TIME,
+    Seat_availability  ENUM('YES','NO') NOT NULL,
+    Starting_location  VARCHAR(50) NOT NULL,
+    Ending_location    VARCHAR(50) NOT NULL,
+    Distance           INT NOT NULL,
+    Aile_seat          INT NOT NULL,
+    Middle_seat        INT NOT NULL,
+    Airline_name       VARCHAR(50) NOT NULL,
+    FOREIGN KEY (Airline_name) REFERENCES Airline(Airline_name)
+);
+
+-- 5. Flight subclasses
+CREATE TABLE Economy (
+    Flight_num   VARCHAR(50) PRIMARY KEY,
+    Base_fair    INT NOT NULL,
+    FOREIGN KEY (Flight_num) REFERENCES Flights(Flight_num)
+);
+CREATE TABLE Business (
+    Flight_num            VARCHAR(50) PRIMARY KEY,
+    Base_fair             INT NOT NULL,
+    WIFI_availability     ENUM('Yes','No') NOT NULL,
+    Drink_availability    ENUM('Yes','No') NOT NULL,
+    Blanket_availability  ENUM('Yes','No') NOT NULL,
+    Pillow_availability   ENUM('Yes','No') NOT NULL,
+    In_flight_movies      ENUM('Yes','No') NOT NULL,
+    FOREIGN KEY (Flight_num) REFERENCES Flights(Flight_num)
+);
+
+-- 6. Ticket
+CREATE TABLE Ticket (
+    T_num           VARCHAR(20) PRIMARY KEY,
+    Passenger_name  VARCHAR(100),
+    Date            DATE,
+    Time            TIME,
+    Class_type      VARCHAR(20),
+    Source          VARCHAR(100),
+    Destination     VARCHAR(100),
+    Seat_type       ENUM('Aile','Middle','Window'),
+    User_name       VARCHAR(50),
+    Flight_num      VARCHAR(50),
+    Ticket_Status   ENUM('Pending','Approved','Cancelled') NOT NULL DEFAULT 'Pending',
+    Cancel_Reason   VARCHAR(100),
+    FOREIGN KEY (User_name)   REFERENCES Passengers(User_name),
+    FOREIGN KEY (Flight_num)  REFERENCES Flights(Flight_num)
+);
+
+-- 7. Payment
+CREATE TABLE Payment (
+    Payment_id      INT AUTO_INCREMENT PRIMARY KEY,
+    T_num           VARCHAR(20),
+    Amount          DECIMAL(10,2) NOT NULL,
+    Payment_date    DATE NOT NULL,
+    Payment_time    TIME NOT NULL,
+    Payment_method  ENUM('Visa Card','Master Card','Bkash','Paypal') NOT NULL,
+    Payment_status  ENUM('Pending','Completed','Failed') NOT NULL DEFAULT 'Pending',
+    FOREIGN KEY (T_num)       REFERENCES Ticket(T_num)
+);
+
+-- 8. Weather
+CREATE TABLE Weather (
+    Weather_ID      INT PRIMARY KEY,
+    Date            DATE,
+    Time            TIME,
+    Location        VARCHAR(100),
+    Wind_speed      DECIMAL(5,2),
+    Temperature     DECIMAL(5,2),
+    Visibility      DECIMAL(5,2),
+    Precipitation   VARCHAR(20),
+    Flight_num      VARCHAR(50),
+    FOREIGN KEY (Flight_num)  REFERENCES Flights(Flight_num)
+);

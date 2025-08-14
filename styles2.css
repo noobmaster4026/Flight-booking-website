@@ -1,0 +1,325 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div{
+    display: block;
+}
+
+nav{
+    background-color: #003135;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo{
+    position: absolute;
+    height: auto;
+    left: 0px;
+    top: 5px;
+    width: 200px;
+}
+.logo img{
+    height: 43px;
+}
+
+nav li{
+    height: 50px;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #dae0e7;
+}
+
+nav a:hover{
+    background-color: #48a3d4;
+}
+
+nav li:first-child{
+    margin-right: auto;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: #00313565;
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li{
+    width: 100%;
+}
+
+.sidebar a{
+    width: 100%;
+}
+
+.menu-button{
+    display: none;
+}
+
+@media(max-width: 800px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+    
+}
+
+@media(max-width: 400px){
+    .sidebar{
+        width: 100%;
+    }
+}
+
+
+button[type="submit"] {
+    background-color: #e4662c;
+    color: #000;
+    padding: 12px 20px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    font-weight: 600;
+}
+
+button[type="submit"]:hover {
+    color: #fff;
+    background-color: #b84a17;
+    transition: all ease-in-out 350ms;
+}
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select {
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #ffffffe4;
+}
+.background-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: bgFade 15s infinite;
+}
+
+
+.bg1 { background-image: url("images/Sundarbans_mangroves_forest_bangladesh.jpg"); animation-delay: 0s; }
+.bg2 { background-image: url("images/background_image.jpg"); animation-delay: 5s; }
+.bg3 { background-image: url("images/Untitled-design-56.jpg"); animation-delay: 10s; }
+.bg4 { background-image: url("images/wallpaperflare.com_wallpaper_5.jpg"); animation-delay: 15s; }
+.bg5 { background-image: url("images/wallpaperflare.com_wallpaper_6.jpg"); animation-delay: 20s; }
+
+
+@keyframes bgFade {
+    0%, 100%   { opacity: 0; }
+    10%, 30%   { opacity: 1; }
+    40%, 90%   { opacity: 0; }
+}
+.booking-section {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 400px;
+    margin: 50px auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-weight: 500;
+}
+
+.booking-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.booking-section input[type="text"],
+.booking-section input[type="date"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking-section input::placeholder {
+    color: #777;
+}
+.booking-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 40px auto;
+    background: #fff;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    text-align: center;
+}
+th {
+    background-color: #e4662c;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+h2 {
+    color: #e4662c;
+  }
+.toggle-group {
+display: flex;
+border: 1px solid #ccc;
+border-radius: 5px;
+overflow: hidden;
+width: fit-content;
+}
+
+.toggle-group input[type="radio"] {
+display: none;
+}
+
+.toggle-group label {
+padding: 10px 20px;
+cursor: pointer;
+background-color: #f0f0f0;
+border-right: 1px solid #ccc;
+font-family: sans-serif;
+}
+
+.toggle-group label:last-child {
+border-right: none;
+}
+
+.toggle-group input[type="radio"]:checked + label {
+background-color: #ddd;
+font-weight: bold;
+}
+.class-button {
+    padding: 6px 14px;
+    border: none;
+    background-color: #dd5f24;
+    border:1.5px solid #dd5f24;
+    color: #000000;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.class-button:hover {
+    color:#f0f0f0;
+    background-color: #b84a17;
+    border:1.5px solid #b84a17;
+    
+}
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #003135;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    border-bottom: 1px solid #05b5c5;
+}
+
+.dropdown-menu li a {
+    color: #fff;
+    padding: 10px 14px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    opacity: 10;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #05b5c5;
+}
+.dropdown.content{
+    display: none;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

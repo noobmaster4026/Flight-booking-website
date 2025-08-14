@@ -1,0 +1,72 @@
+/* payment_style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #5e9fe9, #0cd5c4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+  
+.container {
+    background-color: #abe1e4;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+  
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+}
+  
+strong {
+    color: #0077cc;
+}
+  
+a {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+  
+a:hover {
+    background-color: #005fa3;
+}
+  
+  /* Success and Error Styling */
+h2:contains("✅") {
+    color: #2ecc71;
+}
+  
+h2:contains("❌") {
+    color: #e74c3c;
+}
+/* styles.css */
+.no-tickets {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-top: 30px;
+    background: #5e8697;
+    padding: 12px 20px;
+    border-radius: 6px;
+}
+  
